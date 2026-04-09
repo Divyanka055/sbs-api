@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express')
 const app = express()
 
@@ -19,7 +20,7 @@ const mongoose = require('mongoose')
 
 const connectWithDatabase = async() => {
     try {
-        await mongoose.connect('mongodb+srv://divyanka:divyanka2006@sbs.gxkmfb7.mongodb.net/?appName=SBS')
+        await mongoose.connect(process.env.B_URL)
         console.log("connect to database")
     }
     catch(err){

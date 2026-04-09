@@ -94,10 +94,10 @@ Router.get('/gender/:g',async(req,res)=>{
 
 
 //delete api
-Router.delete('byGender/:g',async(req,res)=>{
+Router.delete('/:id',async(req,res)=>{
     try
     {
-        await Contact.deleteOne({gender:req.params.id})
+        await Contact.deleteOne({_id:req.params.id})
         res.status(200).json({
             msg:'data deleted'
         })
