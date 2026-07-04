@@ -132,6 +132,7 @@ Router.get('/gender/:g',async(req,res)=>{
             contact:contact
         })
     }
+    
     catch(err)
     {
         console.log(err)
