@@ -1,12 +1,12 @@
 require('dotenv').config();
 const express = require('express')
 const app = express()
-const cors = require('cors')
 const userRoute = require('./Routes/user')
 const contactRoute = require('./Routes/contact')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
+const cors = require('cors')
 
 
 
