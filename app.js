@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const userRoute = require('./Routes/user')
 const contactRoute = require('./Routes/contact')
 const mongoose = require('mongoose')
@@ -33,9 +34,10 @@ const connectWithDatabase = async()=>{
 
 connectWithDatabase()
 
-
+app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded())
+
 
 app.use(fileUpload({
     useTempFiles:true,
