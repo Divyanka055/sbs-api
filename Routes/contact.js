@@ -218,14 +218,14 @@ Router.put('/update/:id',async(req,res)=>{
 
         if(req.files)
         {
-            await cloudinary.uploader.destroy(IDContact.imageId)
+            await cloudinary.uploader.destroy(contactData.imageId)
             const uploadedresult=await cloudinary.uploader.upload(req.files.photo.tempFilePath)
             newData['imageId']=uploadedresult.public_id
             newData['imageUrl']=uploadedresult.secure_url
         }
         else{
-            newData['imageId']=IDContact.imageId
-             newData['imageUrl']=IDContact.imageUrl
+            newData['imageId']=contactData.imageId
+             newData['imageUrl']=contactData.imageUrl
         }
         //yaya tk
         const updatedContact = await Contact.findByIdAndUpdate(req.params.id,newData,{new:true})
