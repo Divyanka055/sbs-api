@@ -6,6 +6,7 @@ const contactRoute = require('./Routes/contact')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
+const cors = require("cors");
 
 
 
@@ -33,6 +34,10 @@ const connectWithDatabase = async()=>{
 
 connectWithDatabase()
 
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true
+}));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded())
